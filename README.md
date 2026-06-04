@@ -15,11 +15,14 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## GitHub Pages deployment
 
-Pushes to `main` run [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml), which builds a static export and deploys to GitHub Pages.
+Pushes to `main` build the site and publish to the `gh-pages` branch.
 
-**One-time repo setup** (if the site does not appear after the first workflow run):
+**One-time repo setup:**
 
 1. Open **Settings → Pages** on the repository.
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+2. Set **Source** to **Deploy from a branch**.
+3. Choose branch **`gh-pages`** and folder **`/ (root)`**.
 
-Production builds set `GITHUB_PAGES=true` so assets use the `/live_airdosa` base path.
+**Local dev:** use `pnpm dev` and open **http://localhost:3000** (not `/live_airdosa`).
+
+**Production build:** `pnpm run build:pages`
